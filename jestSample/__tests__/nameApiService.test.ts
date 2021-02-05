@@ -13,8 +13,15 @@ interface Data {
 }
 
 describe("NameApiServiceクラスのテスト", (): void => {
-  test("hoge", async (): Promise<void> => {
-    const nameApiService = new NameApiService();
+  let nameApiService: NameApiService;
+
+  beforeEach((): void => {
+    nameApiService = new NameApiService();
+  });
+
+  test("getFirstName関数が文字列hogeを返す場合、テストは成功する", async (): Promise<
+    void
+  > => {
     const data: Response = {
       /*eslint @typescript-eslint/camelcase: ["error", {properties: "never"}]*/
       data: {
@@ -26,5 +33,21 @@ describe("NameApiServiceクラスのテスト", (): void => {
     const actual = await nameApiService.getFirstName();
 
     expect("hoge").toEqual(actual);
+  });
+
+  test("getFirstName関数が文字列hogehogeを返す場合、テストは失敗する", async (): Promise<
+    void
+  > => {
+    const data: Response = {
+      /*eslint @typescript-eslint/camelcase: ["error", {properties: "never"}]*/
+      data: {
+        first_name: "hogehoge",
+      },
+    };
+    mockedAxios.get.mockResolvedValue(data);
+
+    await expect(nameApiService.getFirstName()).rejects.toThrow(
+      "firstName is too long!"
+    );
   });
 });
