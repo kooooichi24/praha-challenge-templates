@@ -2,7 +2,7 @@
   "scripts": {
     "start": "node dist/index.js",
     "build": "tsc",
-    "test": "jest --watch",
+    "test": "jest --watchAll",
     "lint": "eslint"
   },
   "dependencies": {
