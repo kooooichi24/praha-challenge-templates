@@ -12,8 +12,10 @@ describe("sumOfArray関数のテスト", (): void => {
   //   expect((): number => sumOfArray(["1"])).toThrowError();
   // });
 
-  test("引数に空配列[]を渡すとエラーが発生する", (): void => {
-    expect((): number => sumOfArray([])).toThrow(Error);
+  test("引数に空配列[]を渡すと0が返ってくる", (): void => {
+    const actual = sumOfArray([]);
+
+    expect(0).toEqual(actual);
   });
 
   test("引数に配列[1]を渡すと1が返ってくる", (): void => {
@@ -42,8 +44,10 @@ describe("asyncSumOfArray関数のテスト", (): void => {
   //   await expect((): number => sumOfArray(["1"])).toThrowError();
   // });
 
-  test("引数に空配列[]を渡すとエラーが発生する", async (): Promise<void> => {
-    await expect(asyncSumOfArray([])).rejects.toThrow(Error);
+  test("引数に空配列[]を渡すと0が返ってくる", async (): Promise<void> => {
+    const actual = await asyncSumOfArray([]);
+
+    expect(0).toEqual(actual);
   });
 
   test("引数に配列[1]を渡すと1が返ってくる", async (): Promise<void> => {
@@ -80,7 +84,7 @@ describe("asyncSumOfArraySometimesZero関数のテスト", (): void => {
   //   expect(0).toEqual(actual);
   // });
 
-  test("引数に空配列[]を渡すとエラーが発生する", async (): Promise<void> => {
+  test("引数に空配列[]を渡すと0が返ってくる", async (): Promise<void> => {
     database.save = jest.fn();
 
     const actual: number = await asyncSumOfArraySometimesZero(database, []);
