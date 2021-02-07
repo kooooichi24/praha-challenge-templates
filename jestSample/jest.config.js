@@ -4,5 +4,5 @@ module.exports = {
   collectCoverage: true,
   // collectCoverageFrom: ["**/functions.ts", "**/nameApiService.ts"],
   // collectCoverageFrom: ["*.ts"],
-  collectCoverageFrom: ["<rootDir>/*.ts"],
+  collectCoverageFrom: ["<rootDir>/**/*.ts"],
 };
