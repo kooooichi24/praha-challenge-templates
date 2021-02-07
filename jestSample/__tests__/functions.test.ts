@@ -120,7 +120,11 @@ describe("asyncSumOfArraySometimesZero関数のテスト", (): void => {
   });
 
   test("DatabaseMock.save()が失敗すると0が返る", async (): Promise<void> => {
-    database.save = jest.fn((): Error => new Error("fail!"));
+    database.save = jest.fn(
+      (): Error => {
+        throw new Error("fail!");
+      }
+    );
 
     const actual: number = await asyncSumOfArraySometimesZero(database, [0]);
 
