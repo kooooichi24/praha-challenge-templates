@@ -4,6 +4,8 @@
 
 [airtable](https://airtable.com/tblTnXBXFOYJ0J7lZ/viwyi8muFtWUlhNKG/recatNRhwyLZts9AL?blocks=hide)
 
+---
+
 ## 課題 3(質問)
 
 ### 1.
@@ -71,11 +73,12 @@
 
 - 依存性の注入 の種類
 
-  - インタフェース注入 (引数で渡す手法！今回の課題で用いた手法)
-  - setter 注入
-  - コンストラクタ注入 (Java の Class 内ではコンストラクタによる注入をよく目にした)
-
-  [DI の種類 | Wikipedia](https://ja.wikipedia.org/wiki/%E4%BE%9D%E5%AD%98%E6%80%A7%E3%81%AE%E6%B3%A8%E5%85%A5#DI%E3%81%AE%E7%A8%AE%E9%A1%9E)
+  - ３種類
+    - インタフェース注入 (引数で渡す手法！今回の課題で用いた手法)
+    - setter 注入
+    - コンストラクタ注入 (Java の Class 内ではコンストラクタによる注入をよく目にした)
+  - 参考文献
+    - [DI の種類 | Wikipedia](https://ja.wikipedia.org/wiki/%E4%BE%9D%E5%AD%98%E6%80%A7%E3%81%AE%E6%B3%A8%E5%85%A5#DI%E3%81%AE%E7%A8%AE%E9%A1%9E)
 
 - コンストラクタ注入 と setter 注入 はどちらが良いか
 
@@ -83,11 +86,15 @@
 
     - コンストラクタ注入
 
-  - 理由（TODO: まだ読んでない）
+  - 理由
 
+    - コンストラクター・インジェクションはパラメータの順序を指定でき、Circular Dependency（循環参照） に陥る危険が無いから
+
+  - 参考文献
     - [抄訳: Constructor Injection vs. Setter Injection](https://qiita.com/1000k/items/df08e0dd5e64ec72cb3e)
       - 翻訳元の記事が消えてた、、
     - [Spring で Field Injection より Constructor Injection が推奨される理由](http://pppurple.hatenablog.com/entry/2016/12/29/233141)
+    - [When to use Property Injection vs constructor injection](https://social.msdn.microsoft.com/Forums/office/en-US/7a1dbdd5-ddf2-4eb2-8063-a423bb441158/when-to-use-property-injection-vs-constructor-injection?forum=csharpgeneral)
 
 ---
 
@@ -130,3 +137,68 @@
       - reduce 関数の実施前のチェック
     - 参考文献
       - [信頼性設計のお話](https://ponsuke-tarou.hatenablog.com/entry/2017/09/15/005456#%E4%BF%A1%E9%A0%BC%E8%A8%AD%E8%A8%88%E3%81%AE%E7%A8%AE%E9%A1%9E)
+
+---
+
+## 課題 4(クイズ)
+
+### 1.
+
+- [クイズ対象ファイル](https://github.com/kooooichi24/praha-challenge-templates/tree/task_10_3/jestSample/quiz)
+- [クイズ回答ファイルの格納先](https://github.com/kooooichi24/praha-challenge-templates/tree/task_10_3/jestSample/__tests__)
+
+### 2.
+
+#### クイズ 1
+
+jest.mock と jest.fn の違いを教えてください
+
+<details><summary>回答</summary><div>
+
+- jest.mock
+
+  - モジュール内の全ての exports を自動的にモック関数に設定して返す
+
+- jest.fn
+
+  - 指定した関数のみをモック関数に設定して返す
+
+- [Understanding Jest Mocks](https://medium.com/@rickhanlonii/understanding-jest-mocks-f0046c68e53c)
+</div></details>
+
+#### クイズ 2
+
+jest.fn と jest.spyOn の違いを教えてください
+
+<details><summary>回答</summary><div>
+
+- jest.fn
+  - 指定した関数のみをモック関数に設定して返す
+- jest.spyOn
+  - 指定した関数のみをモック関数に設定して返す + 元の関数を上書き・復元可能
+    - [mockRestore](https://jestjs.io/docs/ja/mock-function-api#mockfnmockrestore)を利用することで復元可能
+
+</div></details>
+
+#### クイズ 3
+
+DI の手法である、インタフェース注入・setter 注入・コンストラクタ注入を それぞれ簡単に説明してください。
+
+<details><summary>回答</summary><div>
+
+- インタフェース注入
+
+  - 引数で DI する手法
+
+- setter 注入
+
+  - setter で DI する手法
+
+- コンストラクタ注入
+
+  - コンストラクタで DI する手法
+
+- **意図**
+  - それぞれの具体的なイメージをつかんで欲しい
+
+</div></details>
