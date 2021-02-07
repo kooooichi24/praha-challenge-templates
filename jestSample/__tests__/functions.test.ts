@@ -15,25 +15,25 @@ describe("sumOfArray関数のテスト", (): void => {
   test("引数に空配列[]を渡すと0が返ってくる", (): void => {
     const actual = sumOfArray([]);
 
-    expect(0).toEqual(actual);
+    expect(0).toBe(actual);
   });
 
   test("引数に配列[1]を渡すと1が返ってくる", (): void => {
     const actual = sumOfArray([1]);
 
-    expect(1).toEqual(actual);
+    expect(1).toBe(actual);
   });
 
   test("引数に配列[1,2]を渡すと3が返ってくる", (): void => {
     const actual: number = sumOfArray([1, 2]);
 
-    expect(3).toEqual(actual);
+    expect(3).toBe(actual);
   });
 
   test("引数に配列[-1,2]を渡すと1が返ってくる", (): void => {
     const actual: number = sumOfArray([-1, 2]);
 
-    expect(1).toEqual(actual);
+    expect(1).toBe(actual);
   });
 });
 
@@ -47,25 +47,25 @@ describe("asyncSumOfArray関数のテスト", (): void => {
   test("引数に空配列[]を渡すと0が返ってくる", async (): Promise<void> => {
     const actual = await asyncSumOfArray([]);
 
-    expect(0).toEqual(actual);
+    expect(0).toBe(actual);
   });
 
   test("引数に配列[1]を渡すと1が返ってくる", async (): Promise<void> => {
     const actual: number = await asyncSumOfArray([1]);
 
-    expect(1).toEqual(actual);
+    expect(1).toBe(actual);
   });
 
   test("引数に配列[-1,2]を渡すと1が返ってくる", async (): Promise<void> => {
     const actual: number = await asyncSumOfArray([-1, 2]);
 
-    expect(1).toEqual(actual);
+    expect(1).toBe(actual);
   });
 
   test("引数に配列[-1,1]を渡すと0が返ってくる", async (): Promise<void> => {
     const actual: number = await asyncSumOfArray([-1, 1]);
 
-    expect(0).toEqual(actual);
+    expect(0).toBe(actual);
   });
 });
 
@@ -81,7 +81,7 @@ describe("asyncSumOfArraySometimesZero関数のテスト", (): void => {
 
   //   const actual: number = await asyncSumOfArraySometimesZero(database, ["1"]);
 
-  //   expect(0).toEqual(actual);
+  //   expect(0).toBe(actual);
   // });
 
   test("引数に空配列[]を渡すと0が返ってくる", async (): Promise<void> => {
@@ -89,7 +89,7 @@ describe("asyncSumOfArraySometimesZero関数のテスト", (): void => {
 
     const actual: number = await asyncSumOfArraySometimesZero(database, []);
 
-    expect(0).toEqual(actual);
+    expect(0).toBe(actual);
   });
 
   test("引数に配列[1]を渡すと1が返ってくる", async (): Promise<void> => {
@@ -97,7 +97,7 @@ describe("asyncSumOfArraySometimesZero関数のテスト", (): void => {
 
     const actual: number = await asyncSumOfArraySometimesZero(database, [1]);
 
-    expect(1).toEqual(actual);
+    expect(1).toBe(actual);
   });
 
   test("引数に配列[1,2]を渡すと3が返ってくる", async (): Promise<void> => {
@@ -105,7 +105,7 @@ describe("asyncSumOfArraySometimesZero関数のテスト", (): void => {
 
     const actual: number = await asyncSumOfArraySometimesZero(database, [1, 2]);
 
-    expect(3).toEqual(actual);
+    expect(3).toBe(actual);
   });
 
   test("引数に配列[-1,2]を渡すと1が返ってくる", async (): Promise<void> => {
@@ -116,7 +116,7 @@ describe("asyncSumOfArraySometimesZero関数のテスト", (): void => {
       2,
     ]);
 
-    expect(1).toEqual(actual);
+    expect(1).toBe(actual);
   });
 
   test("DatabaseMock.save()が失敗すると0が返る", async (): Promise<void> => {
@@ -128,7 +128,7 @@ describe("asyncSumOfArraySometimesZero関数のテスト", (): void => {
 
     const actual: number = await asyncSumOfArraySometimesZero(database, [0]);
 
-    expect(0).toEqual(actual);
+    expect(0).toBe(actual);
   });
 });
 
@@ -147,7 +147,7 @@ describe("getFirstNameThrowIfLong関数のテスト", (): void => {
 
     const actual = await getFirstNameThrowIfLong(nameApiSerivce, 10);
 
-    expect(firstName).toEqual(actual);
+    expect(firstName).toBe(actual);
   });
 
   test("firstNameが8文字の場合、引数に8を渡すとfirstNameが返ってくる", async (): Promise<
@@ -158,7 +158,7 @@ describe("getFirstNameThrowIfLong関数のテスト", (): void => {
 
     const actual = await getFirstNameThrowIfLong(nameApiSerivce, 10);
 
-    expect(firstName).toEqual(actual);
+    expect(firstName).toBe(actual);
   });
 
   test("firstNameが8文字の場合、引数に7を渡すとエラーが発生する", async (): Promise<

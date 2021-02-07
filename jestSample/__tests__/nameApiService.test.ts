@@ -32,7 +32,7 @@ describe("NameApiServiceクラスのテスト", (): void => {
 
     const actual = await nameApiService.getFirstName();
 
-    expect("hoge").toEqual(actual);
+    expect("hoge").toBe(actual);
   });
 
   test("getFirstName関数が文字列hogehogeを返す場合、テストは失敗する", async (): Promise<
