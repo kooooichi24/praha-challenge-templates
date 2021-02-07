@@ -108,10 +108,25 @@
 - **修正内容**
 
   - 実装コード
-  - テストコード
+    - 空配列だったら即座に 0 を返す
+    - reduce の初期値に 0 を設定する
 
 - **なぜそのような修正をしたのか**
 
-  ```
+  - sumOfArray 関数は引数の制約上、空配列を受け取れることが可能。
+  - しかし、reduce 関数は空配列を受け取るとエラーが発生する。
+  - そのため、2 つの対策を導入する必要がある。
+  - 1 つ目は reduce 関数が空配列を受け取った場合に備えて initialValue を設定する対策である。
+  - 2 つ目は reduce 関数を呼び出す前に、処理対象の配列を確認する対策である。
 
-  ```
+    - [TypeError: Reduce of empty array with no initial value | MDN Web Docs](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Errors/Reduce_of_empty_array_with_no_initial_value)
+
+  - メモ
+    - これってつまり、フォールトトレラントとフォールトアボイダンス?
+    - フォールトトレラント
+      - initialValue
+    - フォールトアボイダンス
+      - TypeScript の引数の型の指定
+      - reduce 関数の実施前のチェック
+    - 参考文献
+      - [信頼性設計のお話](https://ponsuke-tarou.hatenablog.com/entry/2017/09/15/005456#%E4%BF%A1%E9%A0%BC%E8%A8%AD%E8%A8%88%E3%81%AE%E7%A8%AE%E9%A1%9E)
