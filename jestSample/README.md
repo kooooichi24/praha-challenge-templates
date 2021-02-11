@@ -202,3 +202,7 @@ DI の手法である、インタフェース注入・setter 注入・コンス�
   - それぞれの具体的なイメージをつかんで欲しい
 
 </div></details>
+
+### 疑問
+
+- `error TS2345: Argument of type 'xxx' is not assignable to parameter of type 'yyy'` のように入力の型が一致しない場合は TypeScript のコンパイラ(?)によって怒られるが、そのようなテストパターンも試験する必要がある?
