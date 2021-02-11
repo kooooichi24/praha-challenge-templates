@@ -76,17 +76,17 @@ describe("sortAndPartition関数のテスト", (): void => {
     });
   });
 
-  describe.skip("引数に配列以外を渡す場合、エラーが発生する", (): void => {
-    // test("引数に number型の3 を渡すと、エラーが発生する", (): void => {
-    //   expect(sortAndPartition(3)).toThrowError();
-    //   expect(sortAndPartition(3)).toThrowError("Only arrays are allowed");
-    // });
-    // test("引数に { key: `value`} を渡すと、エラーが発生する", (): void => {
-    //   expect(sortAndPartition({ key: "value" })).toThrowError();
-    //   expect(sortAndPartition({ key: "value" })).toThrowError(
-    //     "Only arrays are allowed"
-    //   );
-    // });
+  describe("引数に配列以外を渡す場合、エラーが発生する", (): void => {
+    test("引数に number型の3 を渡すと、エラーが発生する", (): void => {
+      expect(() => sortAndPartition(3)).toThrowError();
+      expect(() => sortAndPartition(3)).toThrowError("Only arrays are allowed");
+    });
+    test("引数に { key: `value`} を渡すと、エラーが発生する", (): void => {
+      expect(() => sortAndPartition({ key: "value" })).toThrowError();
+      expect(() => sortAndPartition({ key: "value" })).toThrowError(
+        "Only arrays are allowed"
+      );
+    });
   });
 });
 
