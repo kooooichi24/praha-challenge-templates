@@ -29,10 +29,11 @@ describe("NameApiServiceクラスのテスト", (): void => {
       },
     };
     mockedAxios.get.mockResolvedValue(data);
+    const expected = "hoge";
 
     const actual = await nameApiService.getFirstName();
 
-    expect("hoge").toBe(actual);
+    expect(actual).toBe(expected);
   });
 
   test("getFirstName関数が文字列hogehogeを返す場合、テストは失敗する", async (): Promise<
@@ -45,9 +46,8 @@ describe("NameApiServiceクラスのテスト", (): void => {
       },
     };
     mockedAxios.get.mockResolvedValue(data);
+    const expected = "firstName is too long!";
 
-    await expect(nameApiService.getFirstName()).rejects.toThrow(
-      "firstName is too long!"
-    );
+    await expect(nameApiService.getFirstName()).rejects.toThrow(expected);
   });
 });
